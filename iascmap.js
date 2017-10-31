@@ -423,6 +423,15 @@ headers.append('th').text('ID');
 			.attr("id", "tbody");
 		drawtablebody (dataById, tbody);			// use dataById data to recreate tbody
 
+		// DATATABLE ON CLICK
+		d3.selectAll('#data').selectAll("tr")
+			.on('click', function() {
+				// <tr id='xx'>
+				var target = 'partnerships/' + this.id + '.html';
+				//console.log(target);
+				$('#myModal').modal('show').find('.modal-content').load(target);
+			});
+
 		// Update svg for download
 /*		var svgData = document.getElementById("svg").outerHTML;
 		var svgBlob = new Blob([svgData], {type:"image/svg+xml;charset=utf-8"});

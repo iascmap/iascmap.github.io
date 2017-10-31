@@ -24,8 +24,10 @@ th 				{white-space: nowrap;}
 #table tr:hover {cursor: pointer; background-color: #cccccc; }		
 
 .footer 	{margin-top: 20px; padding: 20px; background-color: #002d73}
-#footer 	{margin-bottom: 1.5em;}
+.footer 	{margin-bottom: 1.5em;}
 .footer p 	{color: white; margin: 20px 0;}
+.footer a 	{color: white; text-decoration: none}
+.footer a:hover 	{color: white; text-decoration: underline}
 
 .modal-content h1	{font-size: 24px;}
 .modal-body h2	{font-size: 20px;}
