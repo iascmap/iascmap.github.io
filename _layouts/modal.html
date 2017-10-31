@@ -1,0 +1,36 @@
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <!-- <h4 class="modal-title" id="myModalLabel">{{ page.title }}</h4> -->
+        <h1 class="modal-title" id="myModalLabel">{{ page.title }}</h1>
+      </div>
+      <div class="modal-body">
+
+<dl class="dl-horizontal">
+	<dt>Area</dt>
+	<dd>{{ page.area }}</dd>
+
+	<dt>Chaired by</dt>
+	<dd>{{ page.chaired }}</dd>
+
+	<dt>Coordinated by</dt>
+	<dd>{{ page.coordinated }}</dd>
+</dl>
+
+<p><b>Contact for further information: <a href="mailto:{{ page.contact }}">{{ page.contact }}</a></b></p>
+
+{{ content }}
+
+<!-- wrap in IF -->
+{% if page.governance %}
+<h2>Governance document</h2>
+<p><a href="{{ page.governance }}">View governance document</a> (pdf)</p>
+{% endif %}
+
+      </div>
+      <div class="modal-footer">
+      	<a href="mailto:rightslab@nottingham.ac.uk?subject=IASCMap update for {{ page.title }} ({{ page.id }})">Contact us to suggest an update for this page</a>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+

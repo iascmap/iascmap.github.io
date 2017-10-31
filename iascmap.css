@@ -14,18 +14,25 @@ select		{margin-right: 2em;}
 
 /* MAIN */
 .main 		{margin-top: 20px;}
-#title 		{margin-top: 0px;}
+#title 		{margin-top: 0px; float: left;}
+.reset 		{margin-top: 4px; float: right;}
 .main ul 	{margin-bottom: 0px; padding-left: 1em;}
 .center 	{text-align: center;}
 
 .table-striped>tbody>tr:nth-of-type(odd) { background-color: #EDEDED; /* was f9f9f9 */}
-th 			{white-space: nowrap;}
+th 				{white-space: nowrap;}
+#table tr:hover {cursor: pointer; background-color: #cccccc; }		
 
 .footer 	{margin-top: 20px; padding: 20px; background-color: #002d73}
 #footer 	{margin-bottom: 1.5em;}
 .footer p 	{color: white; margin: 20px 0;}
 
-
+.modal-content h1	{font-size: 24px;}
+.modal-body h2	{font-size: 20px;}
+.modal-body dt 	{font-weight: 400;}
+.modal-body dd 	{font-weight: 700;}
+.modal-footer 	{text-align: left;}
+.modal-footer button {float: right;}
 
 /* MAP */
 /* responsive svg see https://stackoverflow.com/questions/16265123/resize-svg-when-window-is-resized-in-d3-js */

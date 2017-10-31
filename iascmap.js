@@ -61,12 +61,18 @@
 // TODO add JS action to reset & not submit form...
 	reset.className = 'reset';
 	reset.addEventListener('click', function() {
-	    document.getElementById('dropdowns').reset();
+		window.location.href = "index.html";  	// TEMP just reload the page
+	/*    document.getElementById('dropdowns').reset();
+	    current = "Total";						// reset back to all partnerships
+	    updateTitle();
+	    updateMap();
+	    updateTable();
+	*/
 		//alert('reset done!');
 		return false;							// Hmmm doesnt stop form submission?
 	}, false);	
 	reset.appendChild(document.createTextNode('Reset'));
-	document.getElementById("dropdowns").appendChild(reset);
+	document.getElementById("titleContainer").appendChild(reset);
 
 
 	// MAP
@@ -224,7 +230,7 @@
 			// count activities & push count to object...
 			var counts = {};
 			for (var i = 0; i < activitiesArray.length; i++) {
-			  var num = activitiesArray[i];
+			  var num = activitiesArray[i].replace(/^Other:.*/, "Other");  // strip details from Other so all selected togther
 			  counts[num] = counts[num] ? counts[num] + 1 : 1;
 			}
 			//console.log('counts ');
@@ -336,6 +342,17 @@ headers.append('th').text('ID');
 // WAS HERE	}); // end ready
 
 
+	// DATATABLE ON CLICK
+	/////////////////////
+	d3.selectAll('#data').selectAll("tr")
+		.on('click', function() {
+			// <tr id='xx'>
+			var target = 'partnerships/' + this.id + '.html';
+			//console.log(target);
+			$('#myModal').modal('show').find('.modal-content').load(target);
+		});
+
+
 	// UPDATE MAP & DATATABLE
 	///////////////////////////////////////////////////////////////
 	d3.selectAll(".select").on("input", function() {
@@ -351,20 +368,8 @@ headers.append('th').text('ID');
 			}
 	    });
 
-		// Display title of dataset
-		var dataset = 'datasets' + currentGroup[0].toUpperCase() + currentGroup.slice(1); // need to capitalise!
-		if (current == 'Total') {
-			title = "All partnerships"; 			// override lookup or get eg "Chaired by..." not "All"
-		} else {
-			if (currentGroup == 'chaired' ) {
-				title = "Chaired by " + eval(dataset)[current];
-			} else if (currentGroup == 'coordinated') {
-				title = "Coordinated by " + eval(dataset)[current];
-			} else {
-				title = eval(dataset)[current];
-			}
-		}
-		document.getElementById("title").innerHTML = title;
+		// Update title of dataset
+		updateTitle();
 
 		// Update map colours & mousevents
 		d3.selectAll("path")
@@ -473,6 +478,24 @@ headers.append('th').text('ID');
 
 // FUNCTIONS
 //////////////////////////////////////////////////////////////////
+
+function updateTitle() {
+	// Update title of dataset; above datatable
+	var dataset = 'datasets' + currentGroup[0].toUpperCase() + currentGroup.slice(1); // need to capitalise!
+	if (current == 'Total') {
+		title = "All partnerships"; 			// override lookup or get eg "Chaired by..." not "All"
+	} else {
+		if (currentGroup == 'chaired' ) {
+			title = "Chaired by " + eval(dataset)[current];
+		} else if (currentGroup == 'coordinated') {
+			title = "Coordinated by " + eval(dataset)[current];
+		} else {
+			title = eval(dataset)[current];
+		}
+	}
+	document.getElementById("title").innerHTML = title;
+}
+
 
 function createDropdown (id, dataset)
 {
