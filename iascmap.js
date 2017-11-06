@@ -327,7 +327,7 @@
 		// add table headers
 		var headers = thead.append('tr');
 		// TMP extra ID whilst checking data		
-headers.append('th').text('ID');
+		//headers.append('th').text('ID');
 		headers.append('th').text('Partnership name');
 		headers.append('th').text('Police Force');
 		// TMP extras whilst checking data	
@@ -412,6 +412,10 @@ headers.append('th').text('ID');
 			//console.log('new FILTERED dataById (aka MAP OBJECT of Nested data)');
 			//console.log(JSON.stringify(dataById, null, "  "));
 		}
+
+		// JUST FOR INFO count rows
+		var rows = dataById.keys(dataById).length;
+		console.log('Filter: ' + currentGroup + ' = ' + current + '. No. rows = ' + rows);
 
 		// remove old tbody & add new
 		var table = document.getElementById("table");
@@ -592,7 +596,7 @@ function drawtablebody(data, tbody)
 		var row = tbody.append('tr')
 			.attr("id", rowData['ID']);
 		// TMP extra ID whilst checking data					
-row.append('td').text(rowData['ID']);
+		// row.append('td').text(rowData['ID']);
 		row.append('td').text(rowData['PartnershipName']);
 		row.append('td').text(lookupPFA(rowData['PoliceIDs']));					// lookup displayname
 		// TMP extras whilst checking data	
