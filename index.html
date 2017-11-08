@@ -41,16 +41,22 @@ layout: default
 </div>
 
 
-<!-- D3 for map -->
-<script src="http://d3js.org/topojson.v1.min.js"></script>
-<script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>
-<script src="http://d3js.org/d3-queue.v3.min.js"></script>
-<script src="http://d3js.org/d3-array.v1.min.js"></script>
-<script src="http://d3js.org/d3-geo.v1.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.min.js"></script>
- 
-<!-- for bootstrap -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>     
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
+<!-- required D3 for map -->
+<!-- https://d3js.org/ includes d3.array, d3.queue, d3.geo -->
+<script type="text/javascript" src="{{ "/vendor/d3.4.11.0.min.js" | prepend: site.baseurl }}" charset="utf-8"></script>
 
-<script type="text/javascript" src="{{ "iascmap.js" | prepend: site.baseurl }}"></script>
+<!-- https://github.com/topojson/topojson/releases -->
+<script type="text/javascript" src="{{ "/vendor/topojson.3.0.2.min.js" | prepend: site.baseurl }}"></script>
+
+
+
+
+<!-- http://d3-legend.susielu.com/ -->
+<script type="text/javascript" src="{{ "/vendor/d3-legend.min.js" | prepend: site.baseurl }}"></script>
+ 
+<!-- required for bootstrap -->
+<script type="text/javascript" src="{{ "/vendor/jquery-3.2.1.min.js" | prepend: site.baseurl }}"></script>     
+<script type="text/javascript" src="{{ "/vendor/bootstrap.3.3.7.min.js" | prepend: site.baseurl }}"></script> 
+
+<!-- code to load data, draw map, draw table -->
+<script type="text/javascript" src="{{ "/iascmap.js" | prepend: site.baseurl }}"></script>
