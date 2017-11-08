@@ -355,12 +355,11 @@
 
 	// UPDATE MAP & DATATABLE
 	///////////////////////////////////////////////////////////////
-	d3.selectAll(".select").on("input", function() {
+	d3.selectAll(".select").on("change", function() {
 		// set current dataset & currentGroup
 		current = this.options[this.selectedIndex].value;
 		currentGroup = this.id;
-//alert ('Select changed to: ' + current + ' in group: ' + currentGroup);
-
+		
 		// debug console.log('Select changed to: ' + current + ' in group: ' + currentGroup + ' so datasets for title is ' + dataset);
 
 		// Reset other dropdowns (only 1 active at a time)
