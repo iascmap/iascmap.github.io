@@ -359,6 +359,8 @@
 		// set current dataset & currentGroup
 		current = this.options[this.selectedIndex].value;
 		currentGroup = this.id;
+//alert ('Select changed to: ' + current + ' in group: ' + currentGroup);
+
 		// debug console.log('Select changed to: ' + current + ' in group: ' + currentGroup + ' so datasets for title is ' + dataset);
 
 		// Reset other dropdowns (only 1 active at a time)
@@ -414,8 +416,8 @@
 		}
 
 		// JUST FOR INFO count rows
-		var rows = dataById.keys(dataById).length;
-		console.log('Filter: ' + currentGroup + ' = ' + current + '. No. rows = ' + rows);
+		//var rows = dataById.keys(dataById).length;
+		//console.log('Filter: ' + currentGroup + ' = ' + current + '. No. rows = ' + rows);
 
 		// remove old tbody & add new
 		var table = document.getElementById("table");
