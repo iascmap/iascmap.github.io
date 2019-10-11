@@ -1,0 +1,31 @@
+---
+layout: default
+title: List
+permalink: /list/
+---
+
+<!-- MAIN -->
+<div class="container main"> 
+
+  			
+  			<h2>List of partnerships</h2>
+
+        <table class="table">
+              <tr>
+                <th>Partnership</th>
+                <th>ID</th>
+              </tr>
+
+          {% assign pages = site.pages | sort:"title"  %}
+
+          {% for page in pages %}
+            {% if page.id > 0 %}
+              <tr>
+                <td><a href="{{ page.url }}">{{ page.title }}</a></td>
+                <td>{{ page.id }}</td>
+              </tr>
+            {% endif %}   <!-- /if id -->
+          {% endfor %}  <!-- /pages -->
+        </table>
+
+</div>
